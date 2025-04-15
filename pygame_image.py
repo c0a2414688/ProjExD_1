@@ -27,10 +27,10 @@ def main():
 
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1))#上に動く
+            kk_rct.move_ip((-1, -1))#上に動く
 
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, +1))#下に動く
+            kk_rct.move_ip((-1, +1))#下に動く
 
         if key_lst[pg.K_LEFT]:
             kk_rct.move_ip((-1, 0))#左に動く
