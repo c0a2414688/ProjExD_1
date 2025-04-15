@@ -13,6 +13,9 @@ def main():
     bg_img2 = pg.transform.flip(bg_img,True,False) #左右反転
     koukaton_3 = pg.image.load("fig/3.png") #練習2
     koukaton_3 = pg.transform.flip(koukaton_3,True,False) #左右反転
+    kk_rct = koukaton_3.get_rect()
+    kk_rct.center = 300, 200
+
     tmr = 0
     
     while True:
@@ -22,10 +25,23 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        key_lst = pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            kk_rct.move_ip((0, -1))#上に動く
+
+        if key_lst[pg.K_DOWN]:
+            kk_rct.move_ip((0, +1))#下に動く
+
+        if key_lst[pg.K_LEFT]:
+            kk_rct.move_ip((-1, 0))#左に動く
+
+        if key_lst[pg.K_RIGHT]:
+            kk_rct.move_ip((+1, 0))#右に動く
+        
         screen.blit(bg_img, [-x, 0]) #左側に画像が動く
         screen.blit(bg_img2, [-x+1600, 0]) #左側に画像が動く            
         screen.blit(bg_img, [-x+3200, 0]) #左側に画像が動く
-        screen.blit(koukaton_3, [300, 200])
+        screen.blit(koukaton_3, kk_rct)
         pg.display.update()
         tmr += 1        
         clock.tick(200)
