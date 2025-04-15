@@ -38,6 +38,10 @@ def main():
         if key_lst[pg.K_RIGHT]:
             kk_rct.move_ip((+1, 0))#右に動く
         
+        else:
+            kk_rct.move_ip((-1, 0))
+
+
         screen.blit(bg_img, [-x, 0]) #左側に画像が動く
         screen.blit(bg_img2, [-x+1600, 0]) #左側に画像が動く            
         screen.blit(bg_img, [-x+3200, 0]) #左側に画像が動く
