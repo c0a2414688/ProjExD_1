@@ -17,6 +17,9 @@ def main():
     kk_rct.center = 300, 200
 
     tmr = 0
+    y = 0
+    z = 0
+
     
     while True:
         
@@ -26,22 +29,26 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed()
-        if key_lst[pg.K_UP]:
-            kk_rct.move_ip((-1, -1))#上に動く
-
-        if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((-1, +1))#下に動く
+        y = 0
+        z = 0
+        if key_lst[pg.K_UP]: #上に動く
+          z = -1
+        
+        if key_lst[pg.K_DOWN]:#下に動く
+            z = +1  
 
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))#左に動く
+            y = -1
 
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+1, 0))#右に動く
+            y = +1
+
+        if key_lst[pg.K_RIGHT] == False:
+            y = -1
         
-        else:
-            kk_rct.move_ip((-1, 0))
+        kk_rct.move_ip((y, z))
 
-
+        kk_rct.move_ip((y, z))
         screen.blit(bg_img, [-x, 0]) #左側に画像が動く
         screen.blit(bg_img2, [-x+1600, 0]) #左側に画像が動く            
         screen.blit(bg_img, [-x+3200, 0]) #左側に画像が動く
