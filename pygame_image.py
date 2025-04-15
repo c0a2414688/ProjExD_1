@@ -20,6 +20,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [-x, 0]) #左側に画像が動く
+        screen.blit(bg_img, [-x+1600, 0]) #左側に画像が動く
         screen.blit(koukaton_3, [300, 200])
         pg.display.update()
         tmr += 1        
