@@ -16,12 +16,15 @@ def main():
     tmr = 0
     
     while True:
-        x = tmr 
+        
+        x = tmr%3200#画像がループする
+
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [-x, 0]) #左側に画像が動く
-        screen.blit(bg_img2, [-x+1600, 0]) #左側に画像が動く
+        screen.blit(bg_img2, [-x+1600, 0]) #左側に画像が動く            
+        screen.blit(bg_img, [-x+3200, 0]) #左側に画像が動く
         screen.blit(koukaton_3, [300, 200])
         pg.display.update()
         tmr += 1        
