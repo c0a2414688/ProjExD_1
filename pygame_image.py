@@ -10,6 +10,7 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    bg_img2 = pg.transform.flip(bg_img,True,False) #左右反転
     koukaton_3 = pg.image.load("fig/3.png") #練習2
     koukaton_3 = pg.transform.flip(koukaton_3,True,False) #左右反転
     tmr = 0
@@ -20,7 +21,7 @@ def main():
             if event.type == pg.QUIT: return
 
         screen.blit(bg_img, [-x, 0]) #左側に画像が動く
-        screen.blit(bg_img, [-x+1600, 0]) #左側に画像が動く
+        screen.blit(bg_img2, [-x+1600, 0]) #左側に画像が動く
         screen.blit(koukaton_3, [300, 200])
         pg.display.update()
         tmr += 1        
