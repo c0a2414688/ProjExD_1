@@ -13,11 +13,13 @@ def main():
     koukaton_3 = pg.image.load("fig/3.png") #練習2
     koukaton_3 = pg.transform.flip(koukaton_3,True,False) #左右反転
     tmr = 0
+    
     while True:
+        x = tmr 
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [-x, 0]) #左側に画像が動く
         screen.blit(koukaton_3, [300, 200])
         pg.display.update()
         tmr += 1        
